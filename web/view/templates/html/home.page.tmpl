@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Start Page - Snippetbox</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href='/'>Start Page</a></h1>
+        </header>
+        </header>
+        <nav>
+            <a href="/adding">Edit File by adding</a>
+        </nav>
+        <nav>
+            <a href="/removing">Edit File by removing</a>
+        </nav>
+        <main>
+            <p>File content:</p>
+            <h1><p>=====================================</p></h1>
+            {{ range .HostLines }}
+               <h5>{{ . }}<br /></h5>
+            {{ end }}
+        </main>
+    </body>
+</html>
