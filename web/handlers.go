@@ -44,7 +44,7 @@ func FileEditionByAdding(response http.ResponseWriter, request *http.Request) {
 	// if want to add only localhost resolving domain names
 	// then use var localHostString with value `127.0.0.1`
 	// and send to web form only domain name
-	details := localHostString + request.FormValue("word")
+	details := localHostString + request.FormValue("expression")
 	ts.Execute(response, types.RenderData{Success: true, Action: "Adding", Data: details})
 	editor.MakeFileByDeletionOrAddition(config.VarFileHost, details, enums.ActionAdd)
 }
@@ -63,7 +63,7 @@ func FileEditionByRemoving(response http.ResponseWriter, request *http.Request) 
 		return
 	}
 
-	details := request.FormValue("word")
+	details := request.FormValue("expression")
 	ts.Execute(response, types.RenderData{Success: true, Action: "Deleting", Data: details})
 	editor.MakeFileByDeletionOrAddition(config.VarFileHost, details, enums.ActionRemove)
 }

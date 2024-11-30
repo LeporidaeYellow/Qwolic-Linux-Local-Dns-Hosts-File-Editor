@@ -1,2 +1,2 @@
-go build -o hosts_file_editor app/main.go
+go build -o hosts_file_editor app.go
 sudo ./hosts_file_editor
