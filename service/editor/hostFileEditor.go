@@ -11,18 +11,20 @@ import (
 	"time"
 )
 
+func makeBackupFile(file string) {
+	var backupFile string = config.VarBackupFiles + file + "_Backup_" + getTime().Local().GoString()
+	copyFile(file, backupFile)
+}
+
 // MakeFileByDeletionOrAddition
 func MakeFileByDeletionOrAddition(file string, actionTargetString string, action enums.ActionsEnum) {
 	var lines []string
-
-	var backupFile string = config.VarBackupFiles + file + "_Backup_" + getTime().Local().GoString()
 	var tempFile string = config.VarTempFile
-
-	copyFile(file, backupFile)
-
 	// open file with access level READ & WRITE
-
 	var newFile, err = os.Create(tempFile)
+	// backup file
+	makeBackupFile(file)
+
 	if err != nil {
 		panic(err)
 	}
