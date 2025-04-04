@@ -1,0 +1,26 @@
+{{if .Success }}
+    <body>
+        <header>
+            <h1><a href='/'>Start Page</a></h1>
+        </header>
+        <main>
+            <h1>Thanks for your message!</h1>
+            <h1>{{ .Data }}</h1>
+        </main>
+    </body>
+
+{{else}}
+    <body>
+    <header>
+            <h1><a href='/'>Start Page</a></h1>
+    </header>
+    <h1>{{ .Action }}</h1>
+    <form method="POST">
+        <label>Expression:</label><br />
+        <input type="text" name="expression">
+        <br />
+        <br />
+        <input type="submit">
+    </form>
+    </body>
+{{end}}
